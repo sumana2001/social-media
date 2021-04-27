@@ -2,12 +2,16 @@ const express=require('express');
 const app=express();
 const PORT=5000;
 var mongoose = require('mongoose');
-const {MONGOURI}=require('./keys')
+const {MONGOURI}=require('./keys');
+require('./models/user');
+
+app.use(express.json());
+app.use(require('./routes/auth'));
 
 mongoose.connect(MONGOURI, {useNewUrlParser: true,useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('connected',()=>{
-    console.log("Connected to db")
+    console.log("Connected to db");
 })
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
