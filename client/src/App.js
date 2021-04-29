@@ -5,6 +5,7 @@ import Home from './pages/home';
 import SignIn from './pages/signin';
 import Signup from './pages/signup';
 import Profile from './pages/profile';
+import CreatePost from './pages/createPost';
 
 function App() {
   return(
@@ -15,6 +16,7 @@ function App() {
           <Route path='/signin' exact component={SignIn}></Route>
           <Route path='/signup' exact component={Signup}></Route>
           <Route path='/profile' exact component={Profile}></Route>
+          <Route path='/createpost' exact component={CreatePost}></Route>
         </Switch>
     </Router>
     
