@@ -11,7 +11,7 @@ const Navbar = () => {
           </Link>
           <ul id="nav-mobile" className="right">
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/signin">Sign In</Link>
             </li>
             <li>
               <Link to="/signup">Sign Up</Link>

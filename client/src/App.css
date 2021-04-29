@@ -9,3 +9,14 @@
 a{
     color:black !important;
 }
+
+.mycard{
+    margin-top: 30px;
+}
+
+.auth-card{
+    padding:20px;
+    text-align:center;
+    max-width:400px;
+    margin:10px auto;
+}
