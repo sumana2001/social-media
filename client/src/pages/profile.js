@@ -2,7 +2,7 @@ import React from "react";
 
 const Profile = () => {
   return (
-    <div style={{maxWidth:"80%",margin:"0px auto"}}>
+    <div style={{maxWidth:"700px",margin:"0px auto"}}>
       <div
         style={{
           display: "flex",
