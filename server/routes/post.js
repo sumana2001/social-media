@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 const requireLogin=require('../middleware/requireLogin')
 const Post=mongoose.model("Post");
 
-router.get('/feed',(req,res)=>{
+router.get('/feed',requireLogin,(req,res)=>{
     Post.find()
     .populate("postedBy","_id name")
     .then(posts=>{
-        res.json(posts)
+        res.json({posts})
     })
     .catch(err=>{
         console.log(err)
