@@ -42,3 +42,9 @@ a{
     right:20px !important;
     left:auto !important;
 }
+
+@media screen and (max-width:768px) {
+    .home{
+        margin:4%;
+    }
+}
