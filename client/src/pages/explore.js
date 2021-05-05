@@ -121,17 +121,20 @@ const Explore = () => {
       {data.map((item) => {
         return (
           <div className="card home-card" key={item._id}>
-            <h5 style={{ paddingLeft: "2%", paddingTop: "2%" }}>
+            <h5>
+              <img src={item.postedBy.pic} alt="dp" className="dp" />
               <Link
                 to={
                   item.postedBy._id !== state._id
                     ? "/profile/" + item.postedBy._id
                     : "/profile"
                 }
+                className="name"
               >
                 {item.postedBy.name}
               </Link>
             </h5>
+            {console.log(item)}
 
             <div className="card-image">
               <img src={item.photo} />

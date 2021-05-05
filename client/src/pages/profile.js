@@ -27,7 +27,7 @@ const Profile = () => {
       >
         <div>
           <img
-            src="https://media-exp1.licdn.com/dms/image/C5603AQFBuvvDo8XHpg/profile-displayphoto-shrink_800_800/0/1602933018847?e=1625097600&v=beta&t=ZCYK4YnBGg0Iqyxc11KwwbfZPoEJgR4nRnXQwIf2D_M"
+            src={state ? state.pic : "loading"}
             alt=""
             style={{ width: "160px", height: "160px", borderRadius: "80px" }}
           />
