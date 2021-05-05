@@ -48,7 +48,7 @@ const Navbar = () => {
           className="nav-wrapper white"
           style={{ paddingRight: "5%", paddingLeft: "2%" }}
         >
-          <Link to={state ? "/" : "/signin"} className="brand-logo left">
+          <Link to={state ? "/" : "/signin"} className="brand-logo left big">
             Aliferous
           </Link>
           <ul id="nav-mobile" className="right">

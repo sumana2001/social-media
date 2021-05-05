@@ -44,6 +44,10 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+  .big {
+    font-size: 25px !important;
+  }
+
   .home {
     margin: 4%;
   }
@@ -61,4 +65,8 @@ a {
 .name {
   padding-top: 15px !important;
   display: flex;
+}
+
+.hidden {
+  visibility: hidden;
 }
