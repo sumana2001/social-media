@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import {UserContext} from '../App'
+import { UserContext } from "../App";
 
 const Profile = () => {
   const [mypics, setMypics] = useState([]);
-  const {state,dispatch}=useContext(UserContext)
+  const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
     fetch("/myposts", {
       headers: {
@@ -33,7 +33,8 @@ const Profile = () => {
           />
         </div>
         <div>
-          <h4>{state?state.name:"loading"}</h4>
+          <h4>{state ? state.name : "loading"}</h4>
+          <h5>{state ? state.email : "loading"}</h5>
           <div
             style={{
               display: "flex",
@@ -41,15 +42,22 @@ const Profile = () => {
               width: "108%",
             }}
           >
-            <h6>10 posts</h6>
-            <h6>10 followers</h6>
-            <h6>10 following</h6>
+            <h6>{mypics.length} posts</h6>
+            <h6>{state ? state.followers.length : "0"} followers</h6>
+            <h6>{state ? state.following.length : "0"} following</h6>
           </div>
         </div>
       </div>
       <div className="gallery">
         {mypics.map((item) => {
-          return <img key={item._id} src={item.photo} alt={item.title} className="item"/>;
+          return (
+            <img
+              key={item._id}
+              src={item.photo}
+              alt={item.title}
+              className="item"
+            />
+          );
         })}
       </div>
     </div>

@@ -12,6 +12,7 @@ import SignIn from "./pages/signin";
 import Signup from "./pages/signup";
 import Profile from "./pages/profile";
 import CreatePost from "./pages/createPost";
+import UserProfile from './pages/userProfile'
 import {reducer,initialState} from "./reducers/userReducer";
 
 export const UserContext = createContext();
@@ -35,6 +36,7 @@ const Routing = () => {
       <Route path="/signup" exact component={Signup}></Route>
       <Route path="/profile" exact component={Profile}></Route>
       <Route path="/createpost" exact component={CreatePost}></Route>
+      <Route path="/profile/:userid" exact component={UserProfile}></Route>
     </Switch>
   );
 };
