@@ -7,48 +7,49 @@ import {
   Route,
   useHistory,
 } from "react-router-dom";
-import Home from "./pages/home";
+import Explore from "./pages/explore";
 import SignIn from "./pages/signin";
 import Signup from "./pages/signup";
 import Profile from "./pages/profile";
 import CreatePost from "./pages/createPost";
-import UserProfile from './pages/userProfile'
-import {reducer,initialState} from "./reducers/userReducer";
+import UserProfile from "./pages/userProfile";
+import { reducer, initialState } from "./reducers/userReducer";
+import Feed from "./pages/feed";
 
 export const UserContext = createContext();
 
 const Routing = () => {
   const history = useHistory();
-  const {state,dispatch}=useContext(UserContext)
-  useEffect(()=>{
-    const user=JSON.parse(localStorage.getItem("user"))
-    if(user){
-      dispatch({type:"USER",payload:user})
-    }else{
-      history.push('/signin')
+  const { state, dispatch } = useContext(UserContext);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      dispatch({ type: "USER", payload: user });
+    } else {
+      history.push("/signin");
     }
-
-  },[])
+  }, []);
   return (
     <Switch>
-      <Route path="/" exact component={Home}></Route>
+      <Route path="/explore" exact component={Explore}></Route>
       <Route path="/signin" exact component={SignIn}></Route>
       <Route path="/signup" exact component={Signup}></Route>
       <Route path="/profile" exact component={Profile}></Route>
       <Route path="/createpost" exact component={CreatePost}></Route>
       <Route path="/profile/:userid" exact component={UserProfile}></Route>
+      <Route path="/" exact component={Feed}></Route>
     </Switch>
   );
 };
 
 function App() {
-  const [state,dispatch]=useReducer(reducer,initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <UserContext.Provider value={{state,dispatch}}>
-    <Router>
-      <Navbar />
-      <Routing />
-    </Router>
+    <UserContext.Provider value={{ state, dispatch }}>
+      <Router>
+        <Navbar />
+        <Routing />
+      </Router>
     </UserContext.Provider>
   );
 }
