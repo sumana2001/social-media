@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
+* {
+  font-family: "Sora", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: black !important;
+}
+
+.mycard {
+  margin-top: 30px;
+}
+
+.auth-card {
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  width: 33.33%;
+}
+
+.home-card {
+  margin: 26px auto;
+  max-width: 500px;
+  height: max-content;
+}
+
+#toast-container {
+  top: 80px !important;
+  right: 20px !important;
+  left: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  .big {
+    font-size: 25px !important;
+  }
+
+  .home {
+    margin: 4%;
+  }
+}
+
+.dp {
+  width: 13%;
+  border-radius: 50%;
+  float: left;
+  margin-top: 0 !important;
+  padding: 3px;
+  display: flex;
+}
+
+.name {
+  padding-top: 15px !important;
+  display: flex;
+}
+
+.hidden {
+  visibility: hidden;
+}
