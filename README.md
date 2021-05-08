@@ -1,14 +1,36 @@
-<h1 align='center'>Aliferous Social</h1>
+<h1 align='center'>Aliferous Social🧡</h1>
 <p align='center'>A social media web application with features like creating posts, adding likes and unlikes, following users, deleting posts, commenting on posts etc.</p>
 <p float='center' align='center'>
 <img src='https://github.com/sumana2001/social-media/blob/main/ss.png' width='750'>
 </p>
 
+## Web-Application features✨
+
+* `Authentication` - Register, Login, Logout
+
+* `Post` - Create and Delete Posts
+
+* `Feed` - View posts of users you follow
+
+* `Explore` - View posts of all users
+
+* `Profile` - View your own profile as well as of other users. Profile consists of all the posts, no. of followers and following and an option to change your profile picture
+
+* `Activity` - Like, unlike and comment on posts. You can also follow other users.
+
+* `Search` - Search profiles of other users by searching using their email-id
+
+* `Forgot Password` - Reset your password using sendgrid API  
+<br/>
+
+
+
 [![Starware](https://img.shields.io/badge/⭐-Starware-f5a91a?labelColor=black)](https://github.com/zepfietje/starware)
 
-Project-orsi is Starware.  
+Aliferous-social is Starware.  
 This means you're free to use the project, as long as you star its GitHub repository.  
 Your appreciation makes us grow and glow up. ⭐
+
 
 # Prerequisites 👨‍💻
 
@@ -46,6 +68,9 @@ npm start
 
 The Application Runs on **localhost:3000**
 
+## Sendgrid API
+Create a free account on <a href="https://sendgrid.com/">sendgrid</a> and generate an API key
+
 ### To spin up the backend server
 
 Navigate to the main project folder in a seperate terminal. Then install all npm packages
@@ -62,7 +87,7 @@ Now it's time to spin up the backend server. Run the lines
 ```bash
 nodemon app.js
 ```
-If you get an error immediately, don't worry. The final step is to connect to the MongoDB database.
+If you get an error immediately, don't worry. We will connect to the MongoDB database.
 
 Note: The Server Runs on **localhost:5000**
 
@@ -73,7 +98,9 @@ Make a file `config/dev.js` and write the following:
 ```bash
 module.exports={
     MONGOURI:"<YOUR CONNECTION URI HERE>",
-    JWT_SECRET:"blahblahabcd"
+    JWT_SECRET:"blahblahabcd",
+    SENDGRID_API:"<YOUR SENDGRID API HERE>",
+    EMAIL_URL: "http://localhost:3000"
 }
 ```
 If you face any problems, refer to the [MongoDB](https://www.mongodb.com/blog/postquick-start-nodejs-mongodb--how-to-get-connected-to-your-database) website.
@@ -95,6 +122,8 @@ On your Cluster home page, select CONNECT > Connect your application.
 module.exports={
     MONGOURI:"<YOUR CONNECTION URI HERE>",
     JWT_SECRET:"blahblahabcd"
+    SENDGRID_API:"<YOUR SENDGRID API HERE>",
+    EMAIL_URL: "http://localhost:3000"
 }
 ```
 4. Paste the connection string you copied as the value of mongoURI.
