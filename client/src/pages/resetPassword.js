@@ -1,35 +1,27 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import M from "materialize-css";
-import { UserContext } from "../App";
 
-const SignIn = () => {
-  const { state, dispatch } = useContext(UserContext);
+const Reset = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const PostData = () => {
-    fetch("/signin", {
+    fetch("/reset-password", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
-        password,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.error) {
           M.toast({ html: data.error, classes: "red darken-3" });
         } else {
-          localStorage.setItem("jwt", data.token);
-          localStorage.setItem("user", JSON.stringify(data.user));
-          dispatch({ type: "USER", payload: data.user });
-          M.toast({ html: "Signed In", classes: "green darken-1" });
-          history.push("/");
+          M.toast({ html: data.message, classes: "green darken-1" });
+          history.push("/signin");
         }
       })
       .catch((err) => {
@@ -46,27 +38,15 @@ const SignIn = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
         <button
           className="btn waves-effect waves-light"
           onClick={() => PostData()}
         >
-          Sign In
+          Reset Password
         </button>
-        <p>
-          <Link to="/signup">Don't have an account?</Link>
-        </p>
-        <Link to="/reset">
-          <p style={{ color: "red" }}>Forgot password?</p>
-        </Link>
       </div>
     </div>
   );
 };
 
-export default SignIn;
+export default Reset;

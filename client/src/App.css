@@ -70,3 +70,7 @@ a {
 .hidden {
   visibility: hidden;
 }
+
+.collection-item {
+  width: 100%;
+}

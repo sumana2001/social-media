@@ -15,6 +15,8 @@ import CreatePost from "./pages/createPost";
 import UserProfile from "./pages/userProfile";
 import { reducer, initialState } from "./reducers/userReducer";
 import Feed from "./pages/feed";
+import Reset from "./pages/resetPassword";
+import NewPassword from "./pages/newPassword";
 
 export const UserContext = createContext();
 
@@ -26,7 +28,8 @@ const Routing = () => {
     if (user) {
       dispatch({ type: "USER", payload: user });
     } else {
-      history.push("/signin");
+      if (!history.location.pathname.startsWith("/reset"))
+        history.push("/signin");
     }
   }, []);
   return (
@@ -38,6 +41,8 @@ const Routing = () => {
       <Route path="/createpost" exact component={CreatePost}></Route>
       <Route path="/profile/:userid" exact component={UserProfile}></Route>
       <Route path="/" exact component={Feed}></Route>
+      <Route path="/reset" exact component={Reset}></Route>
+      <Route path="/reset/:token" exact component={NewPassword}></Route>
     </Switch>
   );
 };
